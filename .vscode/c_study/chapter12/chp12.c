@@ -36,10 +36,12 @@ dobule +1 8바이트 증가
 함수가 있는 메모리 공간의 주소=함수 이름
 배열 이름=배열 시작 주소. 함수 이름=함수 시작 주소
 
-함수 포인터= int (*pointer)(int,int)
+함수 포인터= int (*add)(int,int)
 pointer=add
 pointer(x,y) 
 이런식으로 add함수의 매개변수에 x,y값을 전달할 수 있다.
+
+
 
 
 */

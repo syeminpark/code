@@ -67,21 +67,30 @@ printf(_str)
 
 #include <stdio.h>
 
+void *add(int *a, int *b);
+void *subtract(int a, int b);
+void *multiply(int a, int b);
+void *divide(int a, int b);
+
 int main()
 {
-    int array[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-    int *p = array;
+    int val1, val2;
 
-    *p = array[7];
-    for (int i = 1; i < 8; i++)
-    {
-        p[i] = array[i] - 1;
-    }
+    printf("두 수를 입력하시오: ");
+    scanf("%d %d", &val1, &val2);
 
-    for (int i = 0; i < 8; i++)
-    {
-        printf("%d", p[i]);
-    }
+    printf("%d %d", val1, val2);
+    int *p1 = &val1;
+    int *p2 = &val2;
 
+    add(p1, p2);
     return 0;
 }
+void *add(int *a, int *b)
+{
+    static int num = 0;
+    num = *a, *b;
+}
+void *subtract(int a, int b);
+void *multiply(int a, int b);
+void *divide(int a, int b);

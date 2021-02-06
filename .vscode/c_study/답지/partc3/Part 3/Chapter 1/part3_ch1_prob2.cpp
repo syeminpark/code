@@ -3,22 +3,22 @@
 struct point
 {
 	unsigned int num;
-	char bloodtype[2];
+	char bloodtype;
 	double optical1, optical2;
 	int weight;
 };
 
-int main ()
+int main()
 {
 	struct point array[5];
 	int i;
 
-	for (i=0;i<5;i++)
+	for (i = 0; i < 5; i++)
 	{
 		printf("ÇÐ¹ø: ");
 		scanf("%u", &array[i].num);
 		printf("Ç÷¾×Çü: ");
-		scanf("%s", &array[i].bloodtype);
+		scanf("%c", &array[i].bloodtype);
 		printf("½Ã·Â: ");
 		scanf("%lf %lf", &array[i].optical1, &array[i].optical2);
 		printf("¸ö¹«°Ô: ");
@@ -27,16 +27,13 @@ int main ()
 
 	printf("\n\n");
 
-	for (i=0;i<5;i++)
+	for (i = 0; i < 5; i++)
 	{
-		printf("ÇÐ¹ø: %u\nÇ÷¾×Çü: %s\n½Ã·Â: %.1lf, %.1lf\n¸ö¹«°Ô: %d\n\n", array[i].num, &array[i].bloodtype, array[i].optical1, array[i].optical2, array[i].weight);
+		printf("ÇÐ¹ø: %u\nÇ÷¾×Çü: %c\n½Ã·Â: %.1lf, %.1lf\n¸ö¹«°Ô: %d\n\n", array[i].num, &array[i].bloodtype, array[i].optical1, array[i].optical2, array[i].weight);
 	}
 
 	return 0;
-
-
 }
-
 
 /*
 

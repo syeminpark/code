@@ -16,39 +16,26 @@ strcpy()함수를 사용해야함.
 
 
 구조체와 포인터
+구조체 변수의 시작 주소와 구조체의 첫번째 멤버 변수의 주소가 같다.
+struct student stu={1,2,3}
+struct student *p=NULL:
+p=&stu
+
+구조체를 함수의 인자로 전달
+struct point{
+};
+void function(struct point call);  // void function(struct point *call);
+struct point p ={10,20}
+function(p)   //function(&p)
+printf(call.x,call.y) // (*call).x call->y
+
+반환
+struct point function()    // struct point *function()
+{
+    struct point call={10,20}
+    return call         return &call
+}
+struct point p=function()   // struct point* p=function()  
 
 */
-#include <stdio.h>
-
-struct student
-{
-    int number;
-    char blood;
-    double eyeSight;
-    int weight;
-};
-
-int main()
-{
-
-    struct student p1[5];
-    for (int i = 0; i < 5; i++)
-    {
-        printf("학번을 입력해주세요\n");
-        scanf("%d", &p1[i].number);
-
-        printf("혈액형을 입력해주세요: \n");
-        scanf("%c", &p1[i].blood);
-
-        printf("시력을 입력해주세요\n");
-        scanf("%lf", &p1[i].eyeSight);
-
-        printf("몸무게를 입력해주세요\n");
-        scanf("%d", &p1[i].weight);
-    }
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%d번째: %d %c %lf %d\n", i, p1[i].number, p1[i].blood, p1[i].eyeSight, p1[i].weight);
-    }
-    return 0;
 }

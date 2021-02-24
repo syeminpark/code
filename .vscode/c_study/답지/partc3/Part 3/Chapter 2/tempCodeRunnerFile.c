@@ -1,0 +1,1 @@
+	countArr[inputStr[cnt]-'a']++;

@@ -26,6 +26,7 @@ strcmp strncmp
 strchr strstr
 strchr-문자를 찾음
 strstr 문자열을 찾음
+strchr(array1,'a')
 
 strupr strlwr 
 문자열을 대문자 / 소문자로 바꾼다
@@ -39,11 +40,12 @@ strtok()구분자를 기준으로 문자열을 분리
 
 데이터 변환 함수
 atoi(const char* str) //자료형 atoi() atol() atof()
-stdlib을 사용한다
+#include <stdlib.h>
 
 toascii() tolower() touooer()
 ctype.h을 사용
 문자의 아스키, 소문자, 대문자
+#include <ctype.h>
 
 수학 라이브러리
 math.h/stdlib.h 사용
@@ -54,17 +56,36 @@ rand() 난수 생성 패턴 하나/ srand() 난수 패턴 생성 여러 개. see
 */
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main()
 {
-    char input[3][15];
-    char temp[15];
-
-    for (int i = 0; i < 3; i++)
+    struct room
     {
-        printf("3개의 단어를 입력하세요");
-        gets(temp);
-        strcpy(input[i], temp);
+        char num[10];
+        char name[15];
+        int eng;
+        int kor;
+    } s1;
+
+    printf("학번을 입력하세요: ");
+    scanf("%s", &s1.num);
+    char *p1 = NULL;
+    p1 = strstr(s1.num, "2010");
+    if (p1 != NULL)
+    {
+
+        printf("이름을 입력하세요: ");
+        scanf("%s", &s1.name);
+        printf("영어 성적을 입력하세요: ");
+        scanf("%d", &s1.eng);
+        printf("국어 성적을 입력하세요: ");
+        scanf("%d", &s1.kor);
+        printf("%s", s1.num);
+        printf("%s", s1.name);
+        printf("%d\n", s1.eng);
+        printf("%d\n", s1.kor);
     }
+
     return 0;
 }

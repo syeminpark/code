@@ -8,61 +8,63 @@
 
 #include <stdio.h>
 
-
 int main()
 {
     char array1[50];
     char array2[50];
     int i, j, w;
-    FILE* fp1;
-    FILE* fp2;
-    
+    FILE *fp1;
+    FILE *fp2;
+
     char input;
-    
+
     fp1 = fopen("source.txt", "r");
     fp2 = fopen("dest.txt", "w");
-    
-    for (i=0; i<50; i++) {
+
+    for (i = 0; i < 50; i++)
+    {
         array1[i] = 0;
         array2[i] = 0;
     }
-    
-    for(i=0; input != EOF; i++) {
+
+    for (i = 0; input != EOF; i++)
+    {
         input = fgetc(fp1);
-        
+
         array1[i] = input;
     }
-    
-    array1[i-1] = '\0';
-    
-    
+
+    array1[i - 1] = '\0';
+
     w = 0;
-    
-    for(j=0; j<i-1; j++) {
-        if((j%5 == 0 && j >= 5)) {
+
+    for (j = 0; j < i - 1; j++)
+    {
+        if ((j % 5 == 0 && j >= 5))
+        {
             w += 10;
-            
-            if(i-2-j < 5) {
-                w -= 4-(i-2-j);
-            } 
-            
+
+            if (i - 2 - j < 5)
+            {
+                w -= 4 - (i - 2 - j);
+            }
+
             printf("-------------\n");
         }
-        
-        array2[j] = array1[4+w-j];
-        printf("[%d/%d] <- %c\n", j, i-2, array1[4+w-j]);
+
+        array2[j] = array1[4 + w - j];
+        printf("[%d/%d] <- %c\n", j, i - 2, array1[4 + w - j]);
     }
-    
+
     printf("%s\n", array1);
     printf("%s", array2);
-    
+
     fprintf(fp2, "%s", array2);
-    
+
     fclose(fp1);
     fclose(fp2);
     return 0;
 }
-
 
 /*
 
